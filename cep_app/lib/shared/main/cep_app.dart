@@ -9,6 +9,8 @@ class CepApp extends StatelessWidget {
     return MaterialApp(
       title: CepAppConfig.appName,
       theme: CepAppTheme.light,
+      darkTheme: CepAppTheme.dark,
+      themeMode: ThemeMode.system,
       home: Container()),
     );
   }

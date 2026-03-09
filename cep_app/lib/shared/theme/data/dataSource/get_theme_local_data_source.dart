@@ -2,7 +2,7 @@ abstract interface class GetThemeLocalDataSource {
   Future<Either<ThemeException, bool>> getIsLightTheme();
 }
 
-const String IS_LIGHT_THEME_KEY = 'isLightTheme';
+const String IS_LIGHT_THEME_KEY = 'IS_LIGHT_THEME_KEY';
 
 final class GetThemeLocalDataSourceImpl implements GetThemeLocalDataSource {
   final LocalService _localService;

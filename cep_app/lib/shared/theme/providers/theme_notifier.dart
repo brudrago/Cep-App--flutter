@@ -26,4 +26,18 @@ class ThemeNotifier extends StateNotifier<ThemeState> {
   void toggleTheme() {
     state = state.copyWith(themeState: state.themeState == ThemeStateEnum.light ? ThemeStateEnum.dark : ThemeStateEnum.light);
   }
+
+  Future<void> setThemeState(BuildContext context) async {
+    final result = await _themeRepository.setIsLightTheme(state.themeState == ThemeStateEnum.light);
+    if (!context.mounted) return;
+    String errorMessage = 'Tivemos um problema,tente novamente mais tarde.';
+    switch (result) {
+      case Left():
+        context.showSnackBar(errorMessage, SnackBarType.error);
+        break;
+      case Right():
+        context.showSnackBar('O tema foi alterado com sucesso!', SnackBarType.success);
+        break;
+    }
+  }
 }

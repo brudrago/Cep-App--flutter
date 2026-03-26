@@ -1,7 +1,9 @@
 import 'package:cep_app/shared/data/async/either.dart';
 import 'package:cep_app/shared/data/local/local_service/local_service.dart';
+import 'package:cep_app/shared/domain/providers/local_provider.dart';
 import 'package:cep_app/shared/theme/data/dataSource/get_theme_local_data_source.dart';
 import 'package:cep_app/shared/theme/errors/theme_local_exception.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 abstract interface class SetThemeLocalDataSource {
   Future<Either<ThemeException, void>> setIsLightTheme(bool isLightTheme);
@@ -10,7 +12,7 @@ abstract interface class SetThemeLocalDataSource {
 final class SetThemeLocalDataSourceImpl implements SetThemeLocalDataSource {
   final LocalService _localService;
 
-  SetThemeLocalDataSourceImpl({this._localService});
+  SetThemeLocalDataSourceImpl({required LocalService localService}) : _localService = localService;
 
   @override
   Future<Either<ThemeException, void>> setIsLightTheme(bool isLightTheme) async {
@@ -21,3 +23,7 @@ final class SetThemeLocalDataSourceImpl implements SetThemeLocalDataSource {
     };
   }
 }
+
+final setThemeLocalDataSourceProvider = Provider<SetThemeLocalDataSource>(
+  (ref) => SetThemeLocalDataSourceImpl(localService: ref.read(localServiceProvider)),
+);

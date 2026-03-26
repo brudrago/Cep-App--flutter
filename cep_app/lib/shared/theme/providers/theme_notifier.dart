@@ -1,5 +1,9 @@
+import 'package:cep_app/shared/data/async/either.dart';
+import 'package:cep_app/shared/extensions/snack_bar_extension.dart';
 import 'package:cep_app/shared/theme/domain/repositories/theme_repository.dart';
+import 'package:cep_app/shared/theme/errors/theme_local_exception.dart';
 import 'package:cep_app/shared/theme/providers/theme_state.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ThemeNotifier extends StateNotifier<ThemeState> {
@@ -8,7 +12,7 @@ class ThemeNotifier extends StateNotifier<ThemeState> {
   ThemeNotifier({required ThemeRepository themeRepository}) : _themeRepository = themeRepository, super(const ThemeState());
 
   Future<void> initThemeState() async {
-    final result = await _themeRepository.getIsLightThemesLightTheme();
+    final result = await _themeRepository.getIsLightTheme();
     String errorMessage = '';
     switch (result) {
       case Left(:final left):

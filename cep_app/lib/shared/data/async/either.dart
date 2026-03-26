@@ -1,4 +1,6 @@
-sealed class Either<L, R> {}
+sealed class Either<L, R> {
+  const Either();
+}
 
 class Left<L, R> extends Either<L, R> {
   final L _left;

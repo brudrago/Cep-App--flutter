@@ -20,7 +20,16 @@ class _CepScreenState extends ConsumerState<CepScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('CEP'),
+        actions: [
+          Switch(
+            value: ref.watch(themeNotifierProvider).themeMode == ThemeMode.dark,
+            onChanged: (_) {
+              final notifier = ref.read(themeNotifierProvider.notifier);
+              notifier.toggleTheme();
+              notifier.setThemeState(context);
+            },
+          ),
+        ],
       ),
       body: const Center(
         child: Text('CEP'),

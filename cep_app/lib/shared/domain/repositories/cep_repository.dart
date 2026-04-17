@@ -8,5 +8,9 @@ class CepRepository implements CepBaseRepository {
   @override
   Future<Either<CepException, CepResponse>> getCepDetailByCep(
     GetCepDetailsByCepBody body,
-  ) async {}
+  ) async {
+    throw UnimplementedError(
+      'CepRepository.getCepDetailByCep is not implemented.',
+    );
+  }
 }

@@ -1,5 +1,8 @@
 import 'package:cep_app/shared/data/errors/base_exception.dart';
 
 base class CepException extends BaseException {
-  CepException({required super.message});
+  const CepException(String message) : super(message: message);
+
+  @override
+  String toString() => 'CepException: $message';
 }

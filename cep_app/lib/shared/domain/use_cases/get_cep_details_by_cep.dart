@@ -4,8 +4,10 @@ import 'package:cep_app/shared/domain/entities/cep_response.dart';
 import 'package:cep_app/shared/domain/entities/get_cep_details_by_cep_body.dart';
 import 'package:cep_app/shared/domain/errors/cep_exception.dart';
 
+import '../repositories/cep_repository.dart';
+
 class GetCepDetailsByCep {
-  final CepBaseRepository _repository;
+  final CepRepository _repository;
 
   const GetCepDetailsByCep(this._repository);
 

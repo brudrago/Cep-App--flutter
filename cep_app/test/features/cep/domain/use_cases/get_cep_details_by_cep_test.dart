@@ -27,5 +27,14 @@ void main() {
       final cepResponse = await getCepDetailsByCep.call(dummyBody);
       expect(cepResponse, isA<Right>());
     });
+
+    test('failure', () async {
+      when(
+        () => cepRepository.getCepDetailByCep(any()),
+      ).thenAnswer((_) async => Left(dummyApiException));
+
+      final cepResponse = await getCepDetailsByCep.call(dummyBody);
+      expect(cepResponse, isA<Left>());
+    });
   });
 }

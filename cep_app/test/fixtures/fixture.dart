@@ -1,5 +1,6 @@
 import 'package:cep_app/shared/domain/entities/get_cep_details_by_cep_body.dart';
 import 'package:cep_app/shared/domain/entities/cep_response.dart';
+import 'package:cep_app/shared/domain/errors/cep_exception.dart';
 
 const dummyCep = CepResponse(
   cep: '03421030',
@@ -14,3 +15,4 @@ const dummyCep = CepResponse(
 );
 
 const dummyBody = GetCepDetailsByCepBody(cep: '03421030');
+const dummyApiException = CepException('api error');

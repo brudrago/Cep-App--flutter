@@ -49,3 +49,4 @@ class CepResponseModel extends CepResponse {
 
   String toJson() => jsonEncode(toMap());
 }
+//falta criar testes

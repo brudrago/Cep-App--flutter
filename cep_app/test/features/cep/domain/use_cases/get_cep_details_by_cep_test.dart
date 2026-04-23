@@ -5,8 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../../fixtures/fixture.dart';
-
-class MockCepRepository extends Mock implements CepRepository {}
+import '../../../../fixtures/mock_cep_repository.dart';
 
 void main() {
   late CepRepository cepRepository;

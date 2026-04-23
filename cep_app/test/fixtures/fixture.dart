@@ -1,5 +1,6 @@
 import 'package:cep_app/shared/domain/entities/get_cep_details_by_cep_body.dart';
 import 'package:cep_app/shared/domain/entities/cep_response.dart';
+import 'package:cep_app/shared/domain/entities/get_cep_details_list_by_local_details_body.dart';
 import 'package:cep_app/shared/domain/errors/cep_exception.dart';
 
 const dummyCep = CepResponse(
@@ -16,3 +17,9 @@ const dummyCep = CepResponse(
 
 const dummyBody = GetCepDetailsByCepBody(cep: '03421030');
 const dummyApiException = CepException('api error');
+
+const dummyBodyDetailsListByLocalDetails = GetCepDetailsListByLocalDetailsBody(
+  rua: 'rua',
+  cidade: 'São Paulo',
+  estado: 'SP',
+);
